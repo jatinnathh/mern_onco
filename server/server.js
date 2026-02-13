@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { ExpressValidator, cookie } = require("express-validator");
 const express = require('express')
 const mongose = require('mongoose');
@@ -7,7 +8,7 @@ const cors = require('cors')
 const { default: mongoose } = require("mongoose");
 
 
-mongoose.connect('mongodb+srv://jatinnath1111:jatin11@cluster0.0osxjlq.mongodb.net/')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('connected')).catch((err) => console.log(err))
 const app = express()
 
